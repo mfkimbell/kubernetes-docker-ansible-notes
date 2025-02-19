@@ -3,7 +3,24 @@
 ## Docker
 
 <img width="1387" alt="Screenshot 2024-05-28 at 3 49 00 PM" src="https://github.com/mfkimbell/aws-and-other-cloud-notes/assets/107063397/20cdb1f4-0e5c-4a90-bc90-983fd8abf301">
-##Kubernetes
+* has all your code, dependencies (package.json, pyproject.toml), runtime (python 3.9)
+* islated from one another but share the host system's kernal
+* avoids the "works on my machine" problem, used docker for a webscraper before because of this
+
+
+## Docker Compose
+
+<img width="187" alt="Screenshot 2024-05-28 at 3 49 00 PM" src="https://github.com/user-attachments/assets/4848648a-3a26-4754-92d6-9267b7873d7d">
+
+* a tool for building up multiple containers with a YAML filee
+* You can define networks, volumes, and environment variables easily within the YAML file.
+* good for testing docker containers as you can enable "hot reloading" which forces containers to use local files so updates are immediate
+* can be used for very small projects on one server (spaceify)
+
+<img width="756" alt="Screenshot 2025-02-19 at 12 21 51 PM" src="https://github.com/user-attachments/assets/8b89b395-a5e6-412b-974d-aa1983bd717b" />
+
+
+## Kubernetes
 <img width="1407" alt="Screenshot 2024-05-28 at 3 49 17 PM" src="https://github.com/mfkimbell/aws-and-other-cloud-notes/assets/107063397/9247ef6d-4a38-4a88-a0ad-7edfda1c4eaf">
 
 ## EKS (Elastic Kubernetes Service)
