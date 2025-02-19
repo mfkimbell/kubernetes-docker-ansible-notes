@@ -83,6 +83,9 @@ A user can accidentally change the CMD by adding runtime arguments
 
 In a Kubernetes cluster, the control plane manages the cluster's overall state and configuration, while the worker nodes run the application workloads. Each worker node runs a kubelet, which ensures that containers are running in pods as specified. A pod is the smallest deployable unit in Kubernetes and can contain one or more containers that share the same network namespace and storage.
 
+The control plane does NOT point to services, we have a routing system that points to services from external traffic (and internal)
+<img width="800" alt="Screenshot 2025-02-19 at 2 11 39 PM" src="https://github.com/user-attachments/assets/5dfac4d7-2f44-4782-8cd9-b945ded4d5d4" />
+
 
 <img width="556" alt="Screenshot 2024-05-20 at 4 04 51 PM" src="https://github.com/user-attachments/assets/f577a64a-dabe-42b7-a33e-1f2542b5b454">
 
