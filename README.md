@@ -44,6 +44,14 @@ https://www.youtube.com/watch?v=rIrNIzy6U_g
 <img width="760" alt="Screenshot 2024-08-09 at 4 55 54 PM" src="https://github.com/user-attachments/assets/665f5c2f-b281-471a-a2ec-c61834e1f35a">
 <img width="818" alt="Screenshot 2024-08-09 at 4 56 28 PM" src="https://github.com/user-attachments/assets/64730eff-5fe2-4c17-808c-797cf448e66a">
 
+* ENTRYPOINT is harder to overwrite, you generally use this when the docker container is going to be acting more as an executable
+* CMD can be more easily overwritten
+  
+<img width="775" alt="Screenshot 2025-02-19 at 12 53 47 PM" src="https://github.com/user-attachments/assets/c767777d-0484-4043-ba69-798c9190c926" />
+
+<img width="764" alt="Screenshot 2025-02-19 at 12 54 50 PM" src="https://github.com/user-attachments/assets/b6475957-cc14-4450-82ba-26349a0c9c8b" />
+A user can accidentally change the CMD by adding runtime arguments
+
 ### Override example
 <img width="830" alt="Screenshot 2024-08-09 at 4 58 02 PM" src="https://github.com/user-attachments/assets/bf135c3a-4c20-4b47-8a08-8d95100139e9">
 <img width="841" alt="Screenshot 2024-08-09 at 4 58 46 PM" src="https://github.com/user-attachments/assets/d9ee5ecc-2379-464a-8d44-570e2a60cec6">
