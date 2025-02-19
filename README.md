@@ -71,11 +71,11 @@ A user can accidentally change the CMD by adding runtime arguments
 
 # Kubernetes
 
-<img width="1407" alt="Screenshot 2024-05-28 at 3 49 17 PM" src="https://github.com/mfkimbell/aws-and-other-cloud-notes/assets/107063397/9247ef6d-4a38-4a88-a0ad-7edfda1c4eaf">
 
 ## EKS (Elastic Kubernetes Service)
 ![Kubernetes-architecture-diagram-1-1-1024x698](https://github.com/mfkimbell/aws-and-other-cloud-notes/assets/107063397/6ab0ea6c-24ce-4181-8b7c-e6485c1f1a4a)
 
+<img width="603" alt="Screenshot 2025-02-19 at 2 50 42 PM" src="https://github.com/user-attachments/assets/05f4a065-9249-42d7-81a0-ea29e897a365" />
 
 <img width="1109" alt="Screenshot 2024-07-07 at 12 20 39 PM" src="https://github.com/mfkimbell/ci-cd-notes/assets/107063397/5e8cba67-274b-4f1d-aff8-796815cd21ee">
 
@@ -97,6 +97,18 @@ The control plane does NOT point to services, we have a routing system that poin
 
 
 ![image](https://github.com/user-attachments/assets/5cb101c9-1c7c-44d6-8414-46dfcf0c5278)
+
+### Kube-Scheduler
+
+<img width="747" alt="Screenshot 2025-02-19 at 2 57 15 PM" src="https://github.com/user-attachments/assets/acac8e39-b079-4080-9123-e044723161e6" />
+
+### Kubelet
+
+<img width="627" alt="Screenshot 2025-02-19 at 2 57 59 PM" src="https://github.com/user-attachments/assets/bf25a9cd-425e-4a44-9056-90c815f19965" />
+* Pod lifecycle management: Starts, stops, and restarts containers as needed.
+
+### Workflow
+  <img width="558" alt="Screenshot 2025-02-19 at 2 59 05 PM" src="https://github.com/user-attachments/assets/563ee0ea-e06f-4bec-9ea9-6e629c041f56" />
 
 ### Kubernetes Cluster
 So the biggest unit is the **kubernetes cluster**, which is to run applications and manage resources. You can have multiple clusters if you want isolation for different enviornments. 
