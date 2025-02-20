@@ -112,9 +112,21 @@ The control plane does NOT point to services, we have a routing system that poin
 <img width="627" alt="Screenshot 2025-02-19 at 2 57 59 PM" src="https://github.com/user-attachments/assets/bf25a9cd-425e-4a44-9056-90c815f19965" />
 * Pod lifecycle management: Starts, stops, and restarts containers as needed.
 
+## Kubernetes Ingress
+Kubernetes Ingress is a powerful resource that manages external access to services running inside a Kubernetes cluster. It primarily handles HTTP/HTTPS routing, providing load balancing, SSL termination, and name-based virtual hosting.
+```
+[External User] 🌍 --> [Ingress Controller (L7 routing)] --> [kube-proxy (L4 routing)] --> [Service] --> [Pods]
+```
+
 ### Kubernetes Manifest
 * A Kubernetes manifest is a YAML (or JSON) configuration file that describes the desired state of various resources in a Kubernetes cluster.
 * Also called creating a "deployment"
+
+### Statful Set (sts)
+<img width="460" alt="Screenshot 2025-02-20 at 9 40 52 AM" src="https://github.com/user-attachments/assets/0a4aa8a6-e9be-4213-bc7e-e874136b6d1b" />
+
+* when we do deployements, we cant just copy databases since they need to share data
+* Stateful Set allows us to **copy stateful resources**
 
 ### Workflow
   <img width="558" alt="Screenshot 2025-02-19 at 2 59 05 PM" src="https://github.com/user-attachments/assets/563ee0ea-e06f-4bec-9ea9-6e629c041f56" />
@@ -166,6 +178,7 @@ Communicating with the Kubernetes control plane to receive instructions on which
 <img width="792" alt="Screenshot 2025-02-19 at 3 20 31 PM" src="https://github.com/user-attachments/assets/f2f07d09-b3dd-4379-80c2-9118e54c4bd8" />
 
 ### HA-Proxy
+* It's like Kubernetes Ingress, but can do **SSL(TLS) Passthrough** sending unencrypted data in the system, this is not default
 * Not in Kuberenetes by default
 * 🌐 HAProxy is used as an Ingress controller for external HTTP(S) traffic entering the cluster.
 * Handles incoming traffic (service mesh is internal traffic)
@@ -175,7 +188,10 @@ Communicating with the Kubernetes control plane to receive instructions on which
 
 <img width="791" alt="Screenshot 2025-02-19 at 6 37 59 PM" src="https://github.com/user-attachments/assets/9bd5729e-dea7-4dab-b424-8ccb61fa349c" />
 
+<img width="769" alt="Screenshot 2025-02-20 at 9 48 58 AM" src="https://github.com/user-attachments/assets/520a54dd-93a8-434c-887a-1a7a77bcce77" />
+
 ### Service Mesh
+
 
 * The service mesh is typically implemented as a scalable set of network proxies deployed alongside application code (a pattern sometimes called a **sidecar**). These proxies handle the communication between the microservices and also act as a point at which the service mesh features can be introduced. The proxies comprise the service mesh’s data plane, and are controlled as a whole by its control plane.
 
@@ -250,6 +266,9 @@ In Kubernetes, the edge is typically represented by:
 * 
 <img width="532" alt="Screenshot 2025-02-19 at 10 02 04 PM" src="https://github.com/user-attachments/assets/cecd264e-3259-4e18-ba99-da74f89d30dc" />
 
+
+
+* 
 ### Docker Swarm
 
 In Docker Swarm, the architecture is similarly structured for orchestrating containerized applications. The Swarm manager is responsible for the overall management of the cluster, including scheduling tasks and maintaining the desired state. The worker nodes execute the tasks assigned to them by the manager, running these tasks within Docker containers. This ensures a distributed and resilient deployment of applications across the cluster.
