@@ -170,6 +170,8 @@ Communicating with the Kubernetes control plane to receive instructions on which
 
 ### Service Mesh
 
+* The service mesh is typically implemented as a scalable set of network proxies deployed alongside application code (a pattern sometimes called a **sidecar**). These proxies handle the communication between the microservices and also act as a point at which the service mesh features can be introduced. The proxies comprise the service mesh’s data plane, and are controlled as a whole by its control plane.
+
 <img width="769" alt="Screenshot 2025-02-19 at 6 24 22 PM" src="https://github.com/user-attachments/assets/279cc53d-e65e-436d-8415-071b59aaa5af" />
 
 * **Istio** or **Linkerd** (“linker-dee”) for example
@@ -185,10 +187,11 @@ Communicating with the Kubernetes control plane to receive instructions on which
 * ✅ Provides zero-trust networking by verifying every request.
 * ✅ Protects against Man-in-the-middle attacks, spoofed services.
 * Without mTLS: A malicious service could pretend to be payment-service and intercept transactions because Kubernetes networking by default trusts internal traffic.
-* Yes, if you care about end-to-end encryption inside the cluster, mTLS becomes essential after SSL termination. Because SSL termination causes unencrypted traffic inside your kubernetes cluster
+* Yes, if you care about end-to-end encryption inside the cluster, mTLS becomes essential after TLS termination. Because TLS termination causes unencrypted traffic inside your kubernetes cluster
   
 #### What Service Mesh provides
-* HTTPS uses TLS (Transport Layer Security) to encrypt packets and send data securely over the internet. However Service Mesh allows for **mTLS** or Mutual TLS. mTLS encrypts traffic between all services. Without a service mesh you need to **manually implement TLS** for all services
+* HTTPS uses TLS (Transport Layer Security) to encrypt packets and send data securely over the internet. However Service Mesh allows for **mTLS** or Mutual TLS. mTLS encrypts traffic between all services. Without a service mesh you need to **manually implement TLS** for all services. this is **END TO END ENCRYPTION**
+* 
 * ⚡ Advanced Traffic Control **(A/B Testing, Canary Releases, Blue-Green Deployments)**. By default Kubernetes **only provides rolling updates**
 * 💥 Resilience (Retries, Timeouts, Circuit Breakers): **Kubernetes cannot handle: Automatic retries when a service call fails**. Timeouts on service-to-service communication. Circuit breakers to stop calling a failing service (prevent cascading failures).
 * 🔍 Observability (Distributed Tracing, Metrics, Logging): **Service to Service logs** via Sidecar proxies (e.g., Envoy) automatically collect telemetry.
@@ -201,7 +204,7 @@ Communicating with the Kubernetes control plane to receive instructions on which
 
 #### L7 Loadbalancers (Service Mesh and HA-Proxy)
 
-* **SSL termination** refers to the process of decrypting encrypted traffic (using the Secure Sockets Layer protocol) before it reaches a web server, typically done by a load balancer or dedicated device, which then forwards the decrypted data to the server,
+* **TLS termination** refers to the process of decrypting encrypted traffic (using the Secure Sockets Layer protocol) before it reaches a web server, typically done by a load balancer or dedicated device, which then forwards the decrypted data to the server,
 
 <img width="699" alt="Screenshot 2025-02-19 at 6 48 31 PM" src="https://github.com/user-attachments/assets/f9f5c356-de70-49d3-9096-ce011bcd0ab8" />
 
@@ -235,6 +238,11 @@ In Kubernetes, the edge is typically represented by:
 
 <img width="764" alt="Screenshot 2025-02-19 at 4 04 04 PM" src="https://github.com/user-attachments/assets/4bc2b284-833c-4d44-bca3-56e0f7e57fe3" />
 
+## RBAC
+* Kubernetes has RBAC that can be applied for users, but AWS EKS replaces this with IAM users
+* 
+<img width="532" alt="Screenshot 2025-02-19 at 10 02 04 PM" src="https://github.com/user-attachments/assets/cecd264e-3259-4e18-ba99-da74f89d30dc" />
+
 ### Docker Swarm
 
 In Docker Swarm, the architecture is similarly structured for orchestrating containerized applications. The Swarm manager is responsible for the overall management of the cluster, including scheduling tasks and maintaining the desired state. The worker nodes execute the tasks assigned to them by the manager, running these tasks within Docker containers. This ensures a distributed and resilient deployment of applications across the cluster.
@@ -249,7 +257,8 @@ Ansible also uses a `Declarative Language`.
 * **SSH ON STEROIDS**
 * No requirement for ansible agent on recieving VM
 
-
+* 🌿 Ansible ≠ Just SSH + Shell Scripts:
+<img width="661" alt="Screenshot 2025-02-19 at 9 58 49 PM" src="https://github.com/user-attachments/assets/499d124f-9b8b-4605-bb35-a8cc1d4c0280" />
 
 
 
