@@ -107,6 +107,8 @@ The control plane does NOT point to services, we have a routing system that poin
 <img width="627" alt="Screenshot 2025-02-19 at 2 57 59 PM" src="https://github.com/user-attachments/assets/bf25a9cd-425e-4a44-9056-90c815f19965" />
 * Pod lifecycle management: Starts, stops, and restarts containers as needed.
 
+
+
 ### Workflow
   <img width="558" alt="Screenshot 2025-02-19 at 2 59 05 PM" src="https://github.com/user-attachments/assets/563ee0ea-e06f-4bec-9ea9-6e629c041f56" />
 
@@ -139,6 +141,99 @@ Communicating with the Kubernetes control plane to receive instructions on which
 ### Pods
 * hosts containers
 * has shared networking and storage for those containers
+
+### Kubectl (command line interaction)
+<img width="765" alt="Screenshot 2025-02-19 at 3 22 38 PM" src="https://github.com/user-attachments/assets/327257aa-394b-4d38-a7b8-6c2792c91ea8" />
+
+### Kube-proxy
+* Service-to-Pod communication via ClusterIP.
+* Load balancing across multiple Pod replicas.
+* Uses iptables or IPVS rules to route traffic.
+* For a Service with multiple Pods, kube-proxy evenly distributes incoming requests.
+* Ensures cross-node Pod communication is seamless.
+
+<img width="795" alt="Screenshot 2025-02-19 at 3 20 13 PM" src="https://github.com/user-attachments/assets/532677ce-1a08-4d5d-b362-cd3daa1aabda" />
+
+<img width="774" alt="Screenshot 2025-02-19 at 3 18 56 PM" src="https://github.com/user-attachments/assets/2bd404e3-2f01-4a27-b87d-fc6a5c918dd3" />
+
+<img width="792" alt="Screenshot 2025-02-19 at 3 20 31 PM" src="https://github.com/user-attachments/assets/f2f07d09-b3dd-4379-80c2-9118e54c4bd8" />
+
+### HA-Proxy
+* Not in Kuberenetes by default
+* 🌐 HAProxy is used as an Ingress controller for external HTTP(S) traffic entering the cluster.
+* Handles incoming traffic (service mesh is internal traffic)
+* also occurs at Layer 7/Http/https (Kubernetes only does Layer 4/TCP/UDP routing by default)
+  
+<img width="711" alt="Screenshot 2025-02-19 at 4 02 32 PM" src="https://github.com/user-attachments/assets/accd8a3b-a042-4f76-a80d-0ae5954bdde2" />
+
+<img width="791" alt="Screenshot 2025-02-19 at 6 37 59 PM" src="https://github.com/user-attachments/assets/9bd5729e-dea7-4dab-b424-8ccb61fa349c" />
+
+### Service Mesh
+
+<img width="769" alt="Screenshot 2025-02-19 at 6 24 22 PM" src="https://github.com/user-attachments/assets/279cc53d-e65e-436d-8415-071b59aaa5af" />
+
+* **Istio** or **Linkerd** (“linker-dee”) for example
+*  No, a Service Mesh is **not included by default** in Kubernetes.
+*  Kubernetes provides basic networking (via Services, kube-proxy, and CNI plugins) for Pod-to-Pod communication, service discovery, and basic load balancing.
+*  However, Service Meshes (like Istio, Linkerd, Consul) provide advanced traffic management and observability features that Kubernetes does not provide by default.
+*  A service mesh like Linkerd is a tool for adding observability, security, and reliability features to applications by inserting these features at the platform layer rather than the application layer.
+*  The service mesh is typically implemented as a scalable set of network proxies deployed alongside application code (a pattern sometimes called a sidecar).
+*  Allows for things like **Canary** and **Red Green** deployments
+  
+<img width="785" alt="Screenshot 2025-02-19 at 6 45 35 PM" src="https://github.com/user-attachments/assets/69ad9141-2d4a-4a08-a324-e4fe96aa0876" />
+* ✅ Ensures that only trusted services can talk to each other.
+* ✅ Provides zero-trust networking by verifying every request.
+* ✅ Protects against Man-in-the-middle attacks, spoofed services.
+* Without mTLS: A malicious service could pretend to be payment-service and intercept transactions because Kubernetes networking by default trusts internal traffic.
+* Yes, if you care about end-to-end encryption inside the cluster, mTLS becomes essential after SSL termination. Because SSL termination causes unencrypted traffic inside your kubernetes cluster
+  
+#### What Service Mesh provides
+* HTTPS uses TLS (Transport Layer Security) to encrypt packets and send data securely over the internet. However Service Mesh allows for **mTLS** or Mutual TLS. mTLS encrypts traffic between all services. Without a service mesh you need to **manually implement TLS** for all services
+* ⚡ Advanced Traffic Control **(A/B Testing, Canary Releases, Blue-Green Deployments)**. By default Kubernetes **only provides rolling updates**
+* 💥 Resilience (Retries, Timeouts, Circuit Breakers): **Kubernetes cannot handle: Automatic retries when a service call fails**. Timeouts on service-to-service communication. Circuit breakers to stop calling a failing service (prevent cascading failures).
+* 🔍 Observability (Distributed Tracing, Metrics, Logging): **Service to Service logs** via Sidecar proxies (e.g., Envoy) automatically collect telemetry.
+  
+<img width="755" alt="Screenshot 2025-02-19 at 3 57 55 PM" src="https://github.com/user-attachments/assets/1140191e-0761-4024-9732-2050d88d0349" />
+
+<img width="627" alt="Screenshot 2025-02-19 at 3 59 03 PM" src="https://github.com/user-attachments/assets/a56fe559-84a5-4498-8653-c21effe319b4" />
+
+<img width="730" alt="Screenshot 2025-02-19 at 3 59 27 PM" src="https://github.com/user-attachments/assets/0bbd5e3f-e947-4df0-a53e-4e5e0baca896" />
+
+#### L7 Loadbalancers (Service Mesh and HA-Proxy)
+
+* **SSL termination** refers to the process of decrypting encrypted traffic (using the Secure Sockets Layer protocol) before it reaches a web server, typically done by a load balancer or dedicated device, which then forwards the decrypted data to the server,
+
+<img width="699" alt="Screenshot 2025-02-19 at 6 48 31 PM" src="https://github.com/user-attachments/assets/f9f5c356-de70-49d3-9096-ce011bcd0ab8" />
+
+<img width="780" alt="Screenshot 2025-02-19 at 6 50 05 PM" src="https://github.com/user-attachments/assets/4230a110-3b34-45a6-911e-16698b27c1b8" />
+
+<img width="763" alt="Screenshot 2025-02-19 at 6 52 23 PM" src="https://github.com/user-attachments/assets/c7530a38-1de0-46ea-814e-d4e61604c6bd" />
+
+<img width="764" alt="Screenshot 2025-02-19 at 7 01 31 PM" src="https://github.com/user-attachments/assets/e2467437-cbbf-492a-ab20-2ef99f89521b" />
+
+In Kubernetes, the edge is typically represented by:
+* Ingress controllers (like HAProxy, NGINX, or Traefik).
+* Load balancers provided by cloud platforms (e.g., AWS ALB, GCP Load Balancer).
+* NodePort or LoadBalancer services when they expose cluster resources.
+
+```
+[External Client] 🌍 --(HTTPS)--> [HAProxy Ingress Controller 🌐] --(HTTP)--> [K8s Service 🏛️] --> [Pod 🐳]
+```
+
+<img width="761" alt="Screenshot 2025-02-19 at 7 11 14 PM" src="https://github.com/user-attachments/assets/407c41b5-c6c2-49c4-b211-22f787608089" />
+* ⚡ HAProxy: Best for high-performance, low-latency requirements (TCP-heavy apps).
+
+### Container Network Interface Plugins
+* The CNI gives pods unique IPs so **pods can communicate directly** across nodes
+* Pod-to-Pod communication **across nodes** won’t work without a **CNI plugin**, but will work within nodes by default across the local network in the node
+* 🔗 5. Do We Have Unique Pod IPs by Default?
+* ✅ Yes, if your Kubernetes installation includes a CNI plugin.
+* **Managed Kubernetes platforms (EKS, AKS, GKE) provide this by default.**
+* For kubeadm or bare-metal, you must install a CNI (e.g., Calico, Flannel).
+  
+<img width="768" alt="Screenshot 2025-02-19 at 7 06 28 PM" src="https://github.com/user-attachments/assets/410ede7e-9227-4f08-81f2-6797ee77d3d7" />
+
+<img width="764" alt="Screenshot 2025-02-19 at 4 04 04 PM" src="https://github.com/user-attachments/assets/4bc2b284-833c-4d44-bca3-56e0f7e57fe3" />
 
 ### Docker Swarm
 
