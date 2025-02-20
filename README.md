@@ -113,7 +113,8 @@ The control plane does NOT point to services, we have a routing system that poin
 * Pod lifecycle management: Starts, stops, and restarts containers as needed.
 
 ## Kubernetes Ingress
-Kubernetes Ingress is a powerful resource that manages external access to services running inside a Kubernetes cluster. It primarily handles HTTP/HTTPS routing, providing load balancing, SSL termination, and name-based virtual hosting.
+* Kubernetes Ingress is a powerful resource that manages external access to services running inside a Kubernetes cluster. It primarily handles HTTP/HTTPS routing, providing load balancing, SSL termination, and name-based virtual hosting.
+* is a **reverse proxy** cause it forwards client traffic to the server
 ```
 [External User] 🌍 --> [Ingress Controller (L7 routing)] --> [kube-proxy (L4 routing)] --> [Service] --> [Pods]
 ```
@@ -121,6 +122,10 @@ Kubernetes Ingress is a powerful resource that manages external access to servic
 ### Kubernetes Manifest
 * A Kubernetes manifest is a YAML (or JSON) configuration file that describes the desired state of various resources in a Kubernetes cluster.
 * Also called creating a "deployment"
+* tools like kubectl send the manifest's contents to the API server (on the control plane), which then processes and applies the desired configuration.
+
+### Ectd
+* holds the state data (like **terraform.tfstate**) so it knows what to apply to the cluster based on the manifest file
 
 ### Statful Set (sts)
 <img width="460" alt="Screenshot 2025-02-20 at 9 40 52 AM" src="https://github.com/user-attachments/assets/0a4aa8a6-e9be-4213-bc7e-e874136b6d1b" />
@@ -128,6 +133,10 @@ Kubernetes Ingress is a powerful resource that manages external access to servic
 * when we do deployements, we cant just copy databases since they need to share data
 * Stateful Set allows us to **copy stateful resources**
 
+### Minikube
+* used for local testing
+* runs control planes and nodes on one node
+  
 ### Workflow
   <img width="558" alt="Screenshot 2025-02-19 at 2 59 05 PM" src="https://github.com/user-attachments/assets/563ee0ea-e06f-4bec-9ea9-6e629c041f56" />
 
