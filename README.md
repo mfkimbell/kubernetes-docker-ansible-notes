@@ -75,6 +75,11 @@ A user can accidentally change the CMD by adding runtime arguments
 ## EKS (Elastic Kubernetes Service)
 ![Kubernetes-architecture-diagram-1-1-1024x698](https://github.com/mfkimbell/aws-and-other-cloud-notes/assets/107063397/6ab0ea6c-24ce-4181-8b7c-e6485c1f1a4a)
 
+* All of my projects, I ran EKS with the **Worked Nodes on EC2s** but you can also use **Fargate to let AWS handle the nodes**, making it serverless
+* AWS ALWAYS manages the control plane (EKS Control Plane)
+* `eksctl` is used to manage the EKS cluster
+
+  
 <img width="603" alt="Screenshot 2025-02-19 at 2 50 42 PM" src="https://github.com/user-attachments/assets/05f4a065-9249-42d7-81a0-ea29e897a365" />
 
 <img width="1109" alt="Screenshot 2024-07-07 at 12 20 39 PM" src="https://github.com/mfkimbell/ci-cd-notes/assets/107063397/5e8cba67-274b-4f1d-aff8-796815cd21ee">
@@ -107,7 +112,9 @@ The control plane does NOT point to services, we have a routing system that poin
 <img width="627" alt="Screenshot 2025-02-19 at 2 57 59 PM" src="https://github.com/user-attachments/assets/bf25a9cd-425e-4a44-9056-90c815f19965" />
 * Pod lifecycle management: Starts, stops, and restarts containers as needed.
 
-
+### Kubernetes Manifest
+* A Kubernetes manifest is a YAML (or JSON) configuration file that describes the desired state of various resources in a Kubernetes cluster.
+* Also called creating a "deployment"
 
 ### Workflow
   <img width="558" alt="Screenshot 2025-02-19 at 2 59 05 PM" src="https://github.com/user-attachments/assets/563ee0ea-e06f-4bec-9ea9-6e629c041f56" />
