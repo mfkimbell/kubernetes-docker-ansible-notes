@@ -214,6 +214,14 @@ Communicating with the Kubernetes control plane to receive instructions on which
 *  A service mesh like Linkerd is a tool for adding observability, security, and reliability
 *  The service mesh is typically implemented as a scalable set of network proxies deployed alongside application code (a pattern sometimes called a sidecar).
 *  Allows for things like **Canary** and **Red Green** deployments
+*  
+#### So, How Are New Pods Started Without a Rolling Deployment?
+1️⃣ Pre-Provisioning New Pods (Manual or Automated)
+You manually or via CI/CD pipelines deploy new pods (v2) alongside the existing stable pods (v1) using:
+
+A separate Deployment for the new version (my-app-v2), or
+Additional replicas in the same Deployment but with a different label (e.g., version: v2).
+
   
 <img width="785" alt="Screenshot 2025-02-19 at 6 45 35 PM" src="https://github.com/user-attachments/assets/69ad9141-2d4a-4a08-a324-e4fe96aa0876" />
 * ✅ Ensures that only trusted services can talk to each other.
