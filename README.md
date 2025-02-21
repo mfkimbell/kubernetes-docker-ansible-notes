@@ -200,6 +200,12 @@ Communicating with the Kubernetes control plane to receive instructions on which
 
 <img width="769" alt="Screenshot 2025-02-20 at 9 48 58 AM" src="https://github.com/user-attachments/assets/520a54dd-93a8-434c-887a-1a7a77bcce77" />
 
+#### HA-Proxy vs Service Mesh
+* HA-Proxy does more traffic direction from external
+* Service mesh is internal to internal
+  
+<img width="775" alt="Screenshot 2025-02-21 at 2 40 36 PM" src="https://github.com/user-attachments/assets/3783656b-519f-4ebe-942d-a137e8745845" />
+
 ### Service Mesh
 
 
