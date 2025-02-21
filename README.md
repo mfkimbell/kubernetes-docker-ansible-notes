@@ -221,6 +221,17 @@ Communicating with the Kubernetes control plane to receive instructions on which
 * ✅ Protects against Man-in-the-middle attacks, spoofed services.
 * Without mTLS: A malicious service could pretend to be payment-service and intercept transactions because Kubernetes networking by default trusts internal traffic.
 * Yes, if you care about end-to-end encryption inside the cluster, mTLS becomes essential after TLS termination. Because TLS termination causes unencrypted traffic inside your kubernetes cluster
+
+* Key Point:
+CNI plugins ensure packets get delivered from one pod to another. However, they don’t understand the application-layer protocols (like HTTP, gRPC) and don’t provide advanced traffic control or observability.
+
+Yes. A CNI (Container Network Interface) plugin is required for a service mesh to function in Kubernetes because the service mesh depends on basic pod-to-pod network connectivity provided by the CNI.
+
+* CNI plugin ensures Pod A can reach Pod B at the network (IP) level.
+* Service mesh sidecar proxies (like Envoy in Istio or linkerd-proxy in Linkerd) intercept the traffic:
+* Outbound traffic: The sidecar in Pod A applies routing rules, encrypts the request (mTLS), and forwards it.
+* Inbound traffic: The sidecar in Pod B decrypts the request, applies authentication policies, and passes it to the application container.
+* The service mesh control plane (e.g., Istiod in Istio) dynamically updates these proxies with configuration, policies, and routing rules.
   
 #### What Service Mesh provides
 * HTTPS uses TLS (Transport Layer Security) to encrypt packets and send data securely over the internet. However Service Mesh allows for **mTLS** or Mutual TLS. mTLS encrypts traffic between all services. Without a service mesh you need to **manually implement TLS** for all services. this is **END TO END ENCRYPTION**
