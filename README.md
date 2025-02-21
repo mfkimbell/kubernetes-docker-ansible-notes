@@ -192,6 +192,7 @@ Communicating with the Kubernetes control plane to receive instructions on which
 * 🌐 HAProxy is used as an Ingress controller for external HTTP(S) traffic entering the cluster.
 * Handles incoming traffic (service mesh is internal traffic)
 * also occurs at Layer 7/Http/https (Kubernetes only does Layer 4/TCP/UDP routing by default)
+* Can perform **content switching**, meaning it can direct traffic to different backends based on HTTP headers, method type (GET/POST), cookies, URLs, and even the body/payload of the request.
   
 <img width="711" alt="Screenshot 2025-02-19 at 4 02 32 PM" src="https://github.com/user-attachments/assets/accd8a3b-a042-4f76-a80d-0ae5954bdde2" />
 
