@@ -244,7 +244,7 @@ Yes. A CNI (Container Network Interface) plugin is required for a service mesh t
   
 #### What Service Mesh provides
 * HTTPS uses TLS (Transport Layer Security) to encrypt packets and send data securely over the internet. However Service Mesh allows for **mTLS** or Mutual TLS. mTLS encrypts traffic between all services. Without a service mesh you need to **manually implement TLS** for all services. this is **END TO END ENCRYPTION**
-* 
+* Layer 7 (Application Layer) routing means the service mesh understands application protocols like HTTP, gRPC, and TCP, allowing for intelligent traffic control based on application-level information.
 * ⚡ Advanced Traffic Control **(A/B Testing, Canary Releases, Blue-Green Deployments)**. By default Kubernetes **only provides rolling updates**
 * 💥 Resilience (Retries, Timeouts, Circuit Breakers): **Kubernetes cannot handle: Automatic retries when a service call fails**. Timeouts on service-to-service communication. Circuit breakers to stop calling a failing service (prevent cascading failures).
 * 🔍 Observability (Distributed Tracing, Metrics, Logging): **Service to Service logs** via Sidecar proxies (e.g., Envoy) automatically collect telemetry.
