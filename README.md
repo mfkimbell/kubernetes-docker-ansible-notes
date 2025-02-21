@@ -224,6 +224,7 @@ Additional replicas in the same Deployment but with a different label (e.g., ver
 
   
 <img width="785" alt="Screenshot 2025-02-19 at 6 45 35 PM" src="https://github.com/user-attachments/assets/69ad9141-2d4a-4a08-a324-e4fe96aa0876" />
+
 * ✅ Ensures that only trusted services can talk to each other.
 * ✅ Provides zero-trust networking by verifying every request.
 * ✅ Protects against Man-in-the-middle attacks, spoofed services.
