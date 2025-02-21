@@ -1,4 +1,4 @@
-# kubernetes-docker-notes
+f# kubernetes-docker-notes
 
 
 
@@ -211,7 +211,7 @@ Communicating with the Kubernetes control plane to receive instructions on which
 *  No, a Service Mesh is **not included by default** in Kubernetes.
 *  Kubernetes provides basic networking (via Services, kube-proxy, and CNI plugins) for Pod-to-Pod communication, service discovery, and basic load balancing.
 *  However, Service Meshes (like Istio, Linkerd, Consul) provide advanced traffic management and observability features that Kubernetes does not provide by default.
-*  A service mesh like Linkerd is a tool for adding observability, security, and reliability features to applications by inserting these features at the platform layer rather than the application layer.
+*  A service mesh like Linkerd is a tool for adding observability, security, and reliability
 *  The service mesh is typically implemented as a scalable set of network proxies deployed alongside application code (a pattern sometimes called a sidecar).
 *  Allows for things like **Canary** and **Red Green** deployments
   
