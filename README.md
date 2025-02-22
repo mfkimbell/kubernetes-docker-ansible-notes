@@ -187,6 +187,16 @@ Communicating with the Kubernetes control plane to receive instructions on which
 <img width="792" alt="Screenshot 2025-02-19 at 3 20 31 PM" src="https://github.com/user-attachments/assets/f2f07d09-b3dd-4379-80c2-9118e54c4bd8" />
 
 ### HA-Proxy
+HA proxy is way more likely to be a replacement for the INGRESS traffic (North-South Traffic)
+<img width="764" alt="Screenshot 2025-02-22 at 11 32 22 AM" src="https://github.com/user-attachments/assets/cf9a48ee-e8a1-4932-9a27-5b54129b6c96" />
+
+So when you use it you get, access to protocols like websocket, gRPC, and HTTP2. You get more security and routing flexibility. It's also faster.
+
+<img width="762" alt="Screenshot 2025-02-22 at 11 15 00 AM" src="https://github.com/user-attachments/assets/73d1a947-7f27-45f5-b2d2-dc7be8fe9dcb" />
+<img width="818" alt="Screenshot 2025-02-22 at 11 17 25 AM" src="https://github.com/user-attachments/assets/d6a5033b-651b-4d0b-9439-e0185915c80c" />
+<img width="796" alt="Screenshot 2025-02-22 at 11 17 42 AM" src="https://github.com/user-attachments/assets/4495f3e5-3704-40a9-9ab8-a49a20f4e0f9" />
+
+HA-proxy can handle DIFFERENT PROTOCOLS, that's the appeal
 
 <img width="796" alt="Screenshot 2025-02-22 at 11 13 02 AM" src="https://github.com/user-attachments/assets/48df6afa-610e-41c8-aa3f-b9b039cda695" />
 
@@ -194,7 +204,7 @@ Communicating with the Kubernetes control plane to receive instructions on which
 * Not in Kuberenetes by default
 * 🌐 HAProxy is used as an Ingress controller for external HTTP(S) traffic entering the cluster.
 * Handles incoming traffic (service mesh is internal traffic)
-* also occurs at Layer 7/Http/https (Kubernetes only does Layer 4/TCP/UDP routing by default)
+* also occurs at Layer 7/Http/https (Kube-proxy only does Layer 4/TCP/UDP routing by default)
 * Can perform **content switching**, meaning it can direct traffic to different backends based on HTTP headers, method type (GET/POST), cookies, URLs, and even the body/payload of the request.
   
 <img width="711" alt="Screenshot 2025-02-19 at 4 02 32 PM" src="https://github.com/user-attachments/assets/accd8a3b-a042-4f76-a80d-0ae5954bdde2" />
