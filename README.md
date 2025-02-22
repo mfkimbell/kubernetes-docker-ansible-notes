@@ -187,6 +187,9 @@ Communicating with the Kubernetes control plane to receive instructions on which
 <img width="792" alt="Screenshot 2025-02-19 at 3 20 31 PM" src="https://github.com/user-attachments/assets/f2f07d09-b3dd-4379-80c2-9118e54c4bd8" />
 
 ### HA-Proxy
+
+<img width="796" alt="Screenshot 2025-02-22 at 11 13 02 AM" src="https://github.com/user-attachments/assets/48df6afa-610e-41c8-aa3f-b9b039cda695" />
+
 * It's like Kubernetes Ingress, but can do **SSL(TLS) Passthrough** sending unencrypted data in the system, this is not default
 * Not in Kuberenetes by default
 * 🌐 HAProxy is used as an Ingress controller for external HTTP(S) traffic entering the cluster.
