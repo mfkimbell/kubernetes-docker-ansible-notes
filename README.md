@@ -105,10 +105,13 @@ The control plane does NOT point to services, we have a routing system that poin
 ### Kubelet
 
 <img width="627" alt="Screenshot 2025-02-19 at 2 57 59 PM" src="https://github.com/user-attachments/assets/bf25a9cd-425e-4a44-9056-90c815f19965" />
+
 * Pod lifecycle management: Starts, stops, and restarts containers as needed.
 
 ## Kubernetes Ingress
+
 #### THERE IS NO DEFAULT, NGINX is commmonly used, but HA-PROXY is also an option
+* Directs traffic to Kubernetes Services
 * Kubernetes Ingress is a powerful resource that manages external access to services running inside a Kubernetes cluster. It primarily handles HTTP/HTTPS routing, providing load balancing, SSL termination, and name-based virtual hosting.
 * 
 * is a **reverse proxy** cause it forwards client traffic to the server
