@@ -198,13 +198,22 @@ Communicating with the Kubernetes control plane to receive instructions on which
 
 ![image](https://github.com/user-attachments/assets/18ec4499-7b58-4049-9259-23b416e4323a)
 
+#1 is definitely the most common setup however
+
 <img width="774" alt="Screenshot 2025-03-14 at 11 54 53 AM" src="https://github.com/user-attachments/assets/40c4fcf6-8506-4372-afac-fd522efbfc34" />
 
+<img width="782" alt="Screenshot 2025-03-14 at 11 57 34 AM" src="https://github.com/user-attachments/assets/075fbcbf-c4a7-48da-bf95-719fc76b9344" />
 
-HA proxy is way more likely to be a replacement for the INGRESS traffic (North-South Traffic)
+
+HA proxy is way more likely to be a replacement for the AWS ALB (or any cloud load balancer) rather than replacing the Ingress Controller like NGINX or Kube-proxy (while techincally still possible). 
+
+**Cloud loadbalancer is L7 and directs traffict TO KUBERNETES, Ingress controller directs traffic TO SERVICES (through kube-proxy usually, but not always)**
+
 <img width="764" alt="Screenshot 2025-02-22 at 11 32 22 AM" src="https://github.com/user-attachments/assets/cf9a48ee-e8a1-4932-9a27-5b54129b6c96" />
 
 So when you use it you get, access to protocols like websocket, gRPC, and HTTP2. You get more security and routing flexibility. It's also faster.
+
+
 
 **gRPC**
 
