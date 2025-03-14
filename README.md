@@ -63,11 +63,6 @@ A user can accidentally change the CMD by adding runtime arguments
 
 <img width="1102" alt="Screenshot 2024-07-07 at 12 20 17 PM" src="https://github.com/mfkimbell/ci-cd-notes/assets/107063397/cb2c7720-9013-4547-8155-e0f999ad1afc">
 
-### Docker Compose
-* used for multi-container applications
-* like frontend, backend, database
-* also can establish a network
-* Docker Compose is a tool for defining and running multi-container Docker applications. It uses YAML files to configure the application's services (containers), networks, and volumes, making it easier to manage and orchestrate complex applications composed of multiple Docker containers.
 
 # Kubernetes
 
