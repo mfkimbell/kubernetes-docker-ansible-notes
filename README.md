@@ -108,7 +108,9 @@ The control plane does NOT point to services, we have a routing system that poin
 * Pod lifecycle management: Starts, stops, and restarts containers as needed.
 
 ## Kubernetes Ingress
+#### THERE IS NO DEFAULT, NGINX is commmonly used, but HA-PROXY is also an option
 * Kubernetes Ingress is a powerful resource that manages external access to services running inside a Kubernetes cluster. It primarily handles HTTP/HTTPS routing, providing load balancing, SSL termination, and name-based virtual hosting.
+* 
 * is a **reverse proxy** cause it forwards client traffic to the server
 ```
 [External User] 🌍 --> [Ingress Controller (L7 routing)] --> [kube-proxy (L4 routing)] --> [Service] --> [Pods]
