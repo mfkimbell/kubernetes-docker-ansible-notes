@@ -195,6 +195,9 @@ Communicating with the Kubernetes control plane to receive instructions on which
 <img width="792" alt="Screenshot 2025-02-19 at 3 20 31 PM" src="https://github.com/user-attachments/assets/f2f07d09-b3dd-4379-80c2-9118e54c4bd8" />
 
 ### HA-Proxy
+
+![image](https://github.com/user-attachments/assets/18ec4499-7b58-4049-9259-23b416e4323a)
+
 HA proxy is way more likely to be a replacement for the INGRESS traffic (North-South Traffic)
 <img width="764" alt="Screenshot 2025-02-22 at 11 32 22 AM" src="https://github.com/user-attachments/assets/cf9a48ee-e8a1-4932-9a27-5b54129b6c96" />
 
