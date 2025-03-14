@@ -74,6 +74,12 @@ A user can accidentally change the CMD by adding runtime arguments
 * AWS ALWAYS manages the control plane (EKS Control Plane)
 * `eksctl` is used to manage the EKS cluster
 
+## Scaling
+🚀 Best Practice:
+1️⃣ Always scale pods first when possible.
+2️⃣ Scale worker nodes only when pods need more space.
+## Availability
+pods are re-upped by the kubelet
   
 <img width="603" alt="Screenshot 2025-02-19 at 2 50 42 PM" src="https://github.com/user-attachments/assets/05f4a065-9249-42d7-81a0-ea29e897a365" />
 
