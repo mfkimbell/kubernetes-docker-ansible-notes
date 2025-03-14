@@ -219,6 +219,8 @@ HA proxy is way more likely to be a replacement for the AWS ALB (or any cloud lo
 
 So when you use it you get, access to protocols like websocket, gRPC, and HTTP2. You get more security and routing flexibility. It's also faster.
 
+## To be clear, other cloud loudbalances (AWS ALB) can also use non-standard protocols
+
 
 
 **gRPC**
