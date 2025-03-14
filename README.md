@@ -200,6 +200,8 @@ HA proxy is way more likely to be a replacement for the INGRESS traffic (North-S
 
 So when you use it you get, access to protocols like websocket, gRPC, and HTTP2. You get more security and routing flexibility. It's also faster.
 
+**gRPC**
+
 <img width="762" alt="Screenshot 2025-02-22 at 11 15 00 AM" src="https://github.com/user-attachments/assets/73d1a947-7f27-45f5-b2d2-dc7be8fe9dcb" />
 <img width="818" alt="Screenshot 2025-02-22 at 11 17 25 AM" src="https://github.com/user-attachments/assets/d6a5033b-651b-4d0b-9439-e0185915c80c" />
 <img width="796" alt="Screenshot 2025-02-22 at 11 17 42 AM" src="https://github.com/user-attachments/assets/4495f3e5-3704-40a9-9ab8-a49a20f4e0f9" />
