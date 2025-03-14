@@ -115,10 +115,18 @@ The control plane does NOT point to services, we have a routing system that poin
 * Kubernetes Ingress is a powerful resource that manages external access to services running inside a Kubernetes cluster. It primarily handles HTTP/HTTPS routing, providing load balancing, SSL termination, and name-based virtual hosting.
 * 
 * is a **reverse proxy** cause it forwards client traffic to the server
+
+NGINX would flow like this through Kube-Proxy:
 ```
 [External User] 🌍 --> [Ingress Controller (L7 routing)] --> [kube-proxy (L4 routing)] --> [Service] --> [Pods]
 ```
-
+but if
+1. The Ingress Controller uses an internal load balancing mechanism (e.g., AWS ALB, Traefik, Istio Gateway).
+2. It is configured in "IP mode" (e.g., MetalLB, direct pod routing).
+it will flow like this:
+```
+[External User] 🌍  → [AWS ALB Ingress Controller (L7)] → [Service (NodePort)] → [Pods]
+```
 ### Kubernetes Manifest
 * A Kubernetes manifest is a YAML (or JSON) configuration file that describes the desired state of various resources in a Kubernetes cluster.
 * Also called creating a "deployment"
