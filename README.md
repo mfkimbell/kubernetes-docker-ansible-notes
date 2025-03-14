@@ -20,10 +20,10 @@
 ## Docker
 
 <img width="1387" alt="Screenshot 2024-05-28 at 3 49 00 PM" src="https://github.com/mfkimbell/aws-and-other-cloud-notes/assets/107063397/20cdb1f4-0e5c-4a90-bc90-983fd8abf301">
+
 * has all your code, dependencies (package.json, pyproject.toml), runtime (python 3.9)
 * islated from one another but share the host system's kernal
 * avoids the "works on my machine" problem, used docker for a webscraper before because of this
-
 
 * A way of packaging an application with all its dependencies, code, and enviornment variables/configurations. 
 * As opposed to VM's Docker doesn't need it's own OS. It shares the host's OS (specifically the kernal). So it's more lightweight. 
